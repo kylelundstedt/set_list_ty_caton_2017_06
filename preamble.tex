@@ -1,0 +1,16 @@
+\usepackage[fontsize=16pt]{scrextend}
+\usepackage[sfdefault]{FiraSans}
+\usepackage{FiraMono}
+\usepackage{lastpage}
+\geometry{top=0.5in,left=0.5in,bottom=0.5in,right=0.5in}
+\twocolumn
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+   \usepackage{fancyhdr}
+   \pagestyle{fancy}
+   \fancyhead[L]{Loosely Covered}
+   \fancyhead[C]{Page \thepage\ of \pageref{LastPage}}
+   \fancyhead[R]{\today}
+   \fancyfoot[L]{}
+   \fancyfoot[C]{}
+   \fancyfoot[R]{}
