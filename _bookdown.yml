@@ -1,3 +1,37 @@
-book_filename: "Master Set List"
-rmd_subdir: TRUE
+book_filename: "2017-06 Ty Caton"
+rmd_files: [
+	"Valerie",
+	"1979",
+	"Redemption Song",
+	"Give Me One Reason",
+	"Ramble On",
+	"Times Like These",
+	"Mercy",
+	"Let's Get It On",
+	"Have A Drink On Me",
+	"Say It Ain't So",
+	"What I Got",
+	"In The Midnight Hour",
+	"Hit Me With Your Best Shot",
+	"Under The Bridge",
+	"Just A Girl",
+	"Interstate Love Song",
+	"Thinking Out Loud",
+	"Criminal",
+	"Home Live",
+	"Santeria",
+	"Purple Rain",
+	"The Middle",
+	"The Big Bang",
+	"Short Skirt Long Jacket",
+	"Rebel Yell",
+	"Kiss",
+	"Ex's And Oh's",
+	"Play That Funky Music",
+	"Faith",
+	"Always On The Run",
+	"Shine",
+	"Wicked Game",
+
+]
 output_dir: docs

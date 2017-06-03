@@ -1,5 +1,5 @@
 ---
-title: "Master Set List"
+title: "Ty Caton Winery"
 author: "Loosely Covered"
 date: "2017-06"
 site: bookdown::bookdown_site

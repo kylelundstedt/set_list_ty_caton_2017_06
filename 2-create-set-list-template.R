@@ -10,7 +10,8 @@ library(tidyverse)
 set_lists <- gs_title("LC Gigs Set Lists")
 
 # connect to gig-specific tab in that workbook
-set_list <- set_lists %>% gs_read(ws = "2017-06 Ty Caton") %>%
+gig_name <- "2017-06 Ty Caton"
+set_list <- set_lists %>% gs_read(ws = gig_name) %>%
   mutate( Artist = str_replace_all(Artist, "/", "-") ) %>%
   mutate( Artist = str_replace_all(Artist, "&", "") ) %>%
   mutate( Artist_Title =
@@ -20,6 +21,27 @@ set_list <- set_lists %>% gs_read(ws = "2017-06 Ty Caton") %>%
 # create RMarkdown file for gig-specific Lead Sheets
 ???
 
+bookfilename <- str_c('book_filename: "', gig_name, '"\n', 'rmd_files: [')
+write(bookfilename, file = "_bookdown.yml")
+songs <- paste0('\t"',
+                 set_list$Title,
+                 '",')
+write(songs, file = "_bookdown.yml", append = TRUE)
+outputs <- paste0('\n]\n',
+                 'output_dir: docs')
+write(outputs, file = "_bookdown.yml", append = TRUE)
+
+html <- read_html(song_url)
+lyrics <- html %>%
+  html_nodes("#songLyricsDiv") %>%
+  html_text() %>%
+  str_replace_all("\n", "  \n") %>% 
+  str_replace_all("[\r]", "") %>% 
+  str_replace_all(c("€" = "", "â" = "", "½" = "", "" = ""))
+section <- paste0("# ", song_title, "\n")
+write(section, file = paste0("./", song_title, ".Rmd"))
+write(lyrics, file = paste0("./", song_title, ".Rmd"),
+      append = TRUE)
 
 # create RMarkdown file for Master Lead Sheets
 rmd <- list.files(path = "./Songs", pattern = '\\.md')
